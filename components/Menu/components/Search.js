@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 const StyledSearch = styled.div`
   display: flex;
+  border-radius: 24px;
   flex-direction: row;
-  border: 1px solid ${({ theme }) => theme.borderBase};
+  /* border: 1px solid ${({ theme }) => theme.borderBase}; */
   max-width: 425px;
   width: 100%;
   border-radius: 2px;
@@ -12,8 +13,11 @@ const StyledSearch = styled.div`
 
   input {
     width: 80%;
+    border-width: 0.5px;
+    border-color: var(--colors-border_color_primary);
+    border-style: solid;
     padding: 4px 6px;
-    border: none;
+    border-radius: 24px;
     outline: none;
     color: ${({ theme }) => theme.textColorBase};
     background-color: ${({ theme }) => theme.backgroundBase};
@@ -21,7 +25,10 @@ const StyledSearch = styled.div`
   button {
     flex: 1;
     cursor: pointer;
-    border: none;
+    border-width: 0.5px;
+    border-color: var(--colors-border_color_primary);
+    border-style: solid;
+    border-radius: 24px;
     background-color: ${({ theme }) => theme.backgroundLevel2};
     box-shadow: 0 1px 0 rgb(0 0 0 / 10%);
     border-left: 1px solid ${({ theme }) => theme.borderBase};
