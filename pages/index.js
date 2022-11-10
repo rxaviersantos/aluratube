@@ -58,12 +58,13 @@ const StyledHeader = styled.div`
 `;
 const StyleBanner = styled.div`
   background-color: red;
+  background-image: url(${({ bg }) => bg});
   height: 230px;
 `;
 function Header() {
   return (
     <StyledHeader>
-      <StyleBanner />
+      <StyleBanner bg={config.bg} />
 
       <section className="use-info">
         <img src={`http://github.com/${config.github}.png`} />
@@ -82,10 +83,10 @@ function Timeline({ searchValue, ...props }) {
     <StyledTimeline>
       {playlistsNames.map((playlistsNames) => {
         const videos = props.playlists[playlistsNames];
-        console.log(playlistsNames);
-        console.log(videos);
+        // console.log(playlistsNames);
+        // console.log(videos);
         return (
-          <section>
+          <section Key={playlistsNames}>
             <h2>{playlistsNames}</h2>
             <div>
               {videos
@@ -96,7 +97,7 @@ function Timeline({ searchValue, ...props }) {
                 })
                 .map((video) => {
                   return (
-                    <a href={video.url}>
+                    <a key={video.url} href={video.url}>
                       <img src={video.thumb} />
                       <span>{video.title}</span>
                     </a>
