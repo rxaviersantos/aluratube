@@ -1,19 +1,14 @@
 import React from "react";
 import config from "../config.json";
 import styled from "styled-components";
-import { CSSReset } from "../components/CSSReset__index";
 import Menu from "../components/Menu";
 import { StyledTimeline } from "../components/Timeline";
 
 function HomePage() {
-  const estilosDoHommePage = {
-    // backgroundColor: "#D9D9D9"
-  };
   const [valorDoFiltro, setValorDoFiltro] = React.useState("");
 
   return (
     <>
-      <CSSReset />
       <div
         style={{
           display: "flex",
