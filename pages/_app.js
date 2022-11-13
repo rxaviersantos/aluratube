@@ -1,5 +1,8 @@
 import { ThemeProvider } from "styled-components";
 import { CSSReset } from "../components/CSSReset__index";
+import ColorModeProvider, {
+  ColorModeContext,
+} from "../components/Menu/components/ColorMode";
 
 const theme = {
   light: {
@@ -18,11 +21,25 @@ const theme = {
   },
 };
 
-export default function MyApp({ Component, pageProps }) {
+function ProviderWrapper(props) {
   return (
-    <ThemeProvider theme={theme.dark}>
+    <ColorModeProvider initialMode="dark">{props.children}</ColorModeProvider>
+  );
+}
+
+export default function MyApp({ Component, pageProps }) {
+  const contexto = React.useContext(ColorModeContext);
+  return (
+    <ThemeProvider theme={theme[contexto.mode]}>
       <CSSReset />
       <Component {...pageProps} />;
     </ThemeProvider>
   );
 }
+
+export default function _App(props)
+    return (
+        <ProviderWrapper>
+            <MyApp {...props}/>
+        </ProviderWrapper>
+    )
