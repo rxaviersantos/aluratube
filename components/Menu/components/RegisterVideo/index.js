@@ -1,8 +1,6 @@
 import React from "react";
 import { StyledRegisterVideo } from "./styles";
 
-// Whiteboarding
-// Custom Hook
 function useForm(propsDoForm) {
   const [values, setValues] = React.useState(propsDoForm.initialValues);
 
@@ -24,7 +22,7 @@ function useForm(propsDoForm) {
 }
 export default function RegisterVideo() {
   const formCadastro = useForm({
-    initialValues: { titulo: "Frost punk", url: "https://youtube.." },
+    initialValues: { titulo: "God of War Ragnarok", url: "https://youtube.." },
   });
   const [formVisivel, setFormVisivel] = React.useState(true);
   return (
@@ -32,8 +30,6 @@ export default function RegisterVideo() {
       <button className="add-video" onClick={() => setFormVisivel(true)}>
         +
       </button>
-      {/* Ternário */}
-      {/* Operadores de Curto-circuito */}
       {formVisivel ? (
         <form
           onSubmit={(evento) => {
